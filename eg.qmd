@@ -1,10 +1,37 @@
 ---
 title: "Economic growth"
 format: html
+execute: 
+    echo: false
 ---
 
 
-```{r}
+```{r,message=FALSE}
 library(tidyverse)
 library(primer.data)
+
+
 ```
+
+```{r}
+# Install required packages if not already installed
+if (!requireNamespace("tidyverse", quietly = TRUE)) {
+  install.packages("tidyverse")
+}
+if (!requireNamespace("primer.data", quietly = TRUE)) {
+  install.packages("primer.data")
+}
+
+# Load the packages
+library(tidyverse)
+library(primer.data)
+
+# Create a scatter plot using ggplot2 with the trains dataset
+ggplot(data = trains, aes(x = age, y = att_start)) +
+  geom_point(color = "#0072B2", size = 3) +
+  labs(title = "Age vs. Attitude Toward Government",
+       x = "Age (years)",
+       y = "Attitude Score at Start") +
+  theme_minimal()
+```
+
